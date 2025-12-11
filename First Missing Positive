@@ -1,0 +1,25 @@
+class Solution(object):
+    def firstMissingPositive(self, nums):
+        n = len(nums)
+
+        # Step 1: Replace invalid numbers with 0
+        for i in range(n):
+            if nums[i] <= 0 or nums[i] > n:
+                nums[i] = 0
+
+        # Step 2: Use index as a hash key, value as frequency marker
+        for i in range(n):
+            val = abs(nums[i])
+            if 1 <= val <= n:
+                if nums[val - 1] > 0:
+                    nums[val - 1] = -nums[val - 1]
+                elif nums[val - 1] == 0:
+                    nums[val - 1] = -(n + 1)
+
+        # Step 3: First positive index+1 is answer
+        for i in range(n):
+            if nums[i] >= 0:
+                return i + 1
+
+        # Step 4: If all 1...n are present
+        return n + 1
