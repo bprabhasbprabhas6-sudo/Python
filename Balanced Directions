@@ -1,0 +1,16 @@
+n = int(input().strip())
+
+left = 0
+right = 0
+
+for _ in range(n - 1):
+    s = input().strip()
+    if s.endswith('L'):
+        left += 1
+    elif s.endswith('R'):
+        right += 1
+
+if left == right:
+    print("YES")
+else:
+    print("NO")
