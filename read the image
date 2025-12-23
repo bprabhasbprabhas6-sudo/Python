@@ -1,0 +1,2 @@
+img = cv2.imread("/anime-style-group-boys-spending-time-together-enjoying-their-friendship.jpg",0)
+hist = cv2.calcHist([img],[0],None,[256],[0,256])
