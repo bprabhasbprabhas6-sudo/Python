@@ -1,0 +1,7 @@
+import matplotlib.pyplot as plt
+#Plotting
+plt.plot(hist)
+plt.title('Grayscal Histogram')
+plt.xlabel('Intensity value')
+plt.ylabel('Pixel Count')
+plt.show()
