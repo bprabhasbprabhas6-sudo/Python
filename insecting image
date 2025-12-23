@@ -1,0 +1,22 @@
+import numpy as np
+import cv2
+from google.colab.patches import cv2_imshow
+
+# The path to your image file
+image_path = '/anime-style-group-boys-spending-time-together-enjoying-their-friendship.jpg'
+
+# Attempt to read the image
+img = cv2.imread(image_path, 1)
+
+# Check if the image was loaded successfully
+if img is None:
+    print(f"Error: Could not load image from '{image_path}'. Please check the file path and ensure the image exists.")
+    print("Listing files in current directory to help diagnose:")
+    !ls -F # List files in the current directory
+    # If the image is not in the root, you might need to check other directories.
+    # For example, to list files in /content/drive/MyDrive if you're using Google Drive:
+    # !ls -F /content/drive/MyDrive
+else:
+    # If loaded, display and save it
+    cv2_imshow(img)
+    cv2.imwrite('anime.jpg', img)
